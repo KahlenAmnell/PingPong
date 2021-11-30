@@ -3,14 +3,15 @@
 #include <vcl.h>
 #pragma hdrstop
 
-#include "MainMenu.h"
+#include "Board.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
-TMainMenuWindow *MainMenuWindow;
+TForm2 *Form2;
 //---------------------------------------------------------------------------
-__fastcall TMainMenuWindow::TMainMenuWindow(TComponent* Owner)
+__fastcall TForm2::TForm2(TComponent* Owner)
         : TForm(Owner)
 {
 }
 //---------------------------------------------------------------------------
+

@@ -39,6 +39,7 @@
 *.~cpp
 *.~dfm
 *.~h
+*.~bpr
 *.dfm
 
 # generated directories

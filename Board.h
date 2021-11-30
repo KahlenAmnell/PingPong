@@ -1,26 +1,26 @@
 //---------------------------------------------------------------------------
 
-#ifndef MainMenuH
-#define MainMenuH
+#ifndef BoardH
+#define BoardH
 //---------------------------------------------------------------------------
 #include <Classes.hpp>
 #include <Controls.hpp>
 #include <StdCtrls.hpp>
 #include <Forms.hpp>
-#include <Buttons.hpp>
+#include <ExtCtrls.hpp>
+#include <Graphics.hpp>
 //---------------------------------------------------------------------------
-class TMainMenuWindow : public TForm
+class TForm2 : public TForm
 {
 __published:	// IDE-managed Components
-        TBitBtn *newGameButton;
-        TBitBtn *optionButton;
-        TBitBtn *closeButton;
-        TLabel *mainMenu;
+        TImage *paddleLeft;
+        TImage *paddleRight;
+        TImage *ball;
 private:	// User declarations
 public:		// User declarations
-        __fastcall TMainMenuWindow(TComponent* Owner);
+        __fastcall TForm2(TComponent* Owner);
 };
 //---------------------------------------------------------------------------
-extern PACKAGE TMainMenuWindow *MainMenuWindow;
+extern PACKAGE TForm2 *Form2;
 //---------------------------------------------------------------------------
 #endif
