@@ -8,6 +8,7 @@
 #include <StdCtrls.hpp>
 #include <Forms.hpp>
 #include <Buttons.hpp>
+#include "Board.h"
 //---------------------------------------------------------------------------
 class TMainMenuWindow : public TForm
 {
@@ -16,6 +17,7 @@ __published:	// IDE-managed Components
         TBitBtn *optionButton;
         TBitBtn *closeButton;
         TLabel *mainMenu;
+        void __fastcall newGameButtonClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
         __fastcall TMainMenuWindow(TComponent* Owner);
