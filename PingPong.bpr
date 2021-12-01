@@ -4,10 +4,10 @@
   <MACROS>
     <VERSION value="BCB.06.00"/>
     <PROJECT value="PingPong.exe"/>
-    <OBJFILES value="PingPong.obj MainMenu.obj Board.obj"/>
+    <OBJFILES value="PingPong.obj MainMenu.obj Board.obj GameOption.obj"/>
     <RESFILES value="PingPong.res"/>
     <DEFFILE value=""/>
-    <RESDEPEN value="$(RESFILES) MainMenu.dfm Board.dfm"/>
+    <RESDEPEN value="$(RESFILES) MainMenu.dfm Board.dfm GameOption.dfm"/>
     <LIBFILES value=""/>
     <LIBRARIES value=""/>
     <SPARELIBS value="vcl.lib rtl.lib"/>
@@ -47,6 +47,7 @@
       <FILE FILENAME="PingPong.cpp" FORMNAME="" UNITNAME="PingPong" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="MainMenu.cpp" FORMNAME="MainMenuWindow" UNITNAME="MainMenu" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="Board.cpp" FORMNAME="BoardWindow" UNITNAME="Board" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="GameOption.cpp" FORMNAME="GameOptionWindow" UNITNAME="GameOption" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
   </FILELIST>
   <BUILDTOOLS>
   </BUILDTOOLS>
