@@ -12,14 +12,19 @@ TMainMenuWindow *MainMenuWindow;
 __fastcall TMainMenuWindow::TMainMenuWindow(TComponent* Owner)
         : TForm(Owner)
 {
-        BoardWindow->Visible = false;
 }
 //---------------------------------------------------------------------------
 
 
 void __fastcall TMainMenuWindow::newGameButtonClick(TObject *Sender)
 {
-        Application->CreateForm(__classid(TMainMenuWindow), &MainMenuWindow);
+        Application->CreateForm(__classid(TBoardWindow), &BoardWindow);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TMainMenuWindow::closeButtonClick(TObject *Sender)
+{
+        Application->Terminate();
 }
 //---------------------------------------------------------------------------
 

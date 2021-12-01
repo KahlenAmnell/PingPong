@@ -18,6 +18,7 @@ __published:	// IDE-managed Components
         TBitBtn *closeButton;
         TLabel *mainMenu;
         void __fastcall newGameButtonClick(TObject *Sender);
+        void __fastcall closeButtonClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
         __fastcall TMainMenuWindow(TComponent* Owner);
