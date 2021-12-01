@@ -20,6 +20,9 @@ __published:	// IDE-managed Components
         TTimer *leftPalletTimer;
         TTimer *RightPalletTimer;
         TTimer *ballTimer;
+        TButton *startButton;
+        void __fastcall ballTimerTimer(TObject *Sender);
+        void __fastcall startButtonClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
         __fastcall TBoardWindow(TComponent* Owner);

@@ -15,3 +15,18 @@ __fastcall TBoardWindow::TBoardWindow(TComponent* Owner)
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TBoardWindow::ballTimerTimer(TObject *Sender)
+{
+        ball->Left += 5;
+        ball->Top += 5;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TBoardWindow::startButtonClick(TObject *Sender)
+{
+    controlPicture->Visible = false;
+    this->Visible = false;
+    ballTimer->Enabled = true;
+}
+//---------------------------------------------------------------------------
+
