@@ -3,15 +3,14 @@
 #include <vcl.h>
 #pragma hdrstop
 
-#include "Board.h"
+#include "GameOption.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
-TBoardWindow *BoardWindow;
+TGameOptionWindow *GameOptionWindow;
 //---------------------------------------------------------------------------
-__fastcall TBoardWindow::TBoardWindow(TComponent* Owner)
+__fastcall TGameOptionWindow::TGameOptionWindow(TComponent* Owner)
         : TForm(Owner)
 {
 }
 //---------------------------------------------------------------------------
-

@@ -4,7 +4,8 @@
 #pragma hdrstop
 //---------------------------------------------------------------------------
 USEFORM("MainMenu.cpp", MainMenuWindow);
-USEFORM("Board.cpp", Form2);
+USEFORM("Board.cpp", BoardWindow);
+USEFORM("GameOption.cpp", GameOptionWindow);
 //---------------------------------------------------------------------------
 WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {
@@ -12,7 +13,7 @@ WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
         {
                  Application->Initialize();
                  Application->CreateForm(__classid(TMainMenuWindow), &MainMenuWindow);
-                 Application->CreateForm(__classid(TForm2), &Form2);
+                 Application->CreateForm(__classid(TGameOptionWindow), &GameOptionWindow);
                  Application->Run();
         }
         catch (Exception &exception)

@@ -14,3 +14,23 @@ __fastcall TMainMenuWindow::TMainMenuWindow(TComponent* Owner)
 {
 }
 //---------------------------------------------------------------------------
+
+
+void __fastcall TMainMenuWindow::newGameButtonClick(TObject *Sender)
+{
+        Application->CreateForm(__classid(TBoardWindow), &BoardWindow);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TMainMenuWindow::closeButtonClick(TObject *Sender)
+{
+        Application->Terminate();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TMainMenuWindow::optionButtonClick(TObject *Sender)
+{
+        GameOptionWindow->Visible = true;        
+}
+//---------------------------------------------------------------------------
+

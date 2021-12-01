@@ -10,17 +10,21 @@
 #include <ExtCtrls.hpp>
 #include <Graphics.hpp>
 //---------------------------------------------------------------------------
-class TForm2 : public TForm
+class TBoardWindow : public TForm
 {
 __published:	// IDE-managed Components
         TImage *paddleLeft;
         TImage *paddleRight;
         TImage *ball;
+        TImage *controlPicture;
+        TTimer *leftPalletTimer;
+        TTimer *RightPalletTimer;
+        TTimer *ballTimer;
 private:	// User declarations
 public:		// User declarations
-        __fastcall TForm2(TComponent* Owner);
+        __fastcall TBoardWindow(TComponent* Owner);
 };
 //---------------------------------------------------------------------------
-extern PACKAGE TForm2 *Form2;
+extern PACKAGE TBoardWindow *BoardWindow;
 //---------------------------------------------------------------------------
 #endif

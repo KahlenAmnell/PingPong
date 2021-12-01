@@ -1,31 +1,21 @@
 //---------------------------------------------------------------------------
 
-#ifndef MainMenuH
-#define MainMenuH
+#ifndef GameOptionH
+#define GameOptionH
 //---------------------------------------------------------------------------
 #include <Classes.hpp>
 #include <Controls.hpp>
 #include <StdCtrls.hpp>
 #include <Forms.hpp>
-#include <Buttons.hpp>
-#include "Board.h"
-#include "GameOption.h"
 //---------------------------------------------------------------------------
-class TMainMenuWindow : public TForm
+class TGameOptionWindow : public TForm
 {
 __published:	// IDE-managed Components
-        TBitBtn *newGameButton;
-        TBitBtn *optionButton;
-        TBitBtn *closeButton;
-        TLabel *mainMenu;
-        void __fastcall newGameButtonClick(TObject *Sender);
-        void __fastcall closeButtonClick(TObject *Sender);
-        void __fastcall optionButtonClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
-        __fastcall TMainMenuWindow(TComponent* Owner);
+        __fastcall TGameOptionWindow(TComponent* Owner);
 };
 //---------------------------------------------------------------------------
-extern PACKAGE TMainMenuWindow *MainMenuWindow;
+extern PACKAGE TGameOptionWindow *GameOptionWindow;
 //---------------------------------------------------------------------------
 #endif
