@@ -28,3 +28,9 @@ void __fastcall TMainMenuWindow::closeButtonClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TMainMenuWindow::optionButtonClick(TObject *Sender)
+{
+        GameOptionWindow->Visible = true;        
+}
+//---------------------------------------------------------------------------
+

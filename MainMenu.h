@@ -9,6 +9,7 @@
 #include <Forms.hpp>
 #include <Buttons.hpp>
 #include "Board.h"
+#include "GameOption.h"
 //---------------------------------------------------------------------------
 class TMainMenuWindow : public TForm
 {
@@ -19,6 +20,7 @@ __published:	// IDE-managed Components
         TLabel *mainMenu;
         void __fastcall newGameButtonClick(TObject *Sender);
         void __fastcall closeButtonClick(TObject *Sender);
+        void __fastcall optionButtonClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
         __fastcall TMainMenuWindow(TComponent* Owner);
