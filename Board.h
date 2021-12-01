@@ -24,8 +24,14 @@ __published:	// IDE-managed Components
         void __fastcall ballTimerTimer(TObject *Sender);
         void __fastcall startButtonClick(TObject *Sender);
 private:	// User declarations
+        void randomStart();
+        void ballMove();
+        void wallCollision();
 public:		// User declarations
         __fastcall TBoardWindow(TComponent* Owner);
+        int y;
+        int x;
+
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TBoardWindow *BoardWindow;

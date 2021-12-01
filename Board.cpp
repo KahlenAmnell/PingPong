@@ -12,21 +12,70 @@ TBoardWindow *BoardWindow;
 __fastcall TBoardWindow::TBoardWindow(TComponent* Owner)
         : TForm(Owner)
 {
-}
-//---------------------------------------------------------------------------
-
-void __fastcall TBoardWindow::ballTimerTimer(TObject *Sender)
-{
-        ball->Left += 5;
-        ball->Top += 5;
+        y = 5;
+        x = 5;
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TBoardWindow::startButtonClick(TObject *Sender)
 {
     controlPicture->Visible = false;
-    this->Visible = false;
+    startButton->Visible = false;
     ballTimer->Enabled = true;
+    randomStart();
 }
 //---------------------------------------------------------------------------
+
+void __fastcall TBoardWindow::ballTimerTimer(TObject *Sender)
+{
+        ballMove();
+        wallCollision();
+
+}
+//---------------------------------------------------------------------------
+
+void TBoardWindow::randomStart()
+{
+        randomize();
+        int startOption = random(4);
+        switch(startOption)
+        {
+                case 1:
+                        break;
+                case 2:
+                        y = -y;
+                        break;
+                case 3:
+                        x = -x;
+                        break;
+                case 4:
+                        x = -x;
+                        y = -y;
+                        break;
+        }
+}
+//---------------------------------------------------------------------------
+
+void TBoardWindow::ballMove()
+{
+        ball->Left += x;
+        ball->Top += y;
+}
+
+//---------------------------------------------------------------------------
+
+void TBoardWindow::wallCollision()
+{
+        if(ball->Top <= 0)
+        {
+                y = -y;
+         }
+        if(ball->Top + (ball->Height)*2 >= BoardWindow->Height)
+        {
+                y = -y;
+         }
+}
+
+//---------------------------------------------------------------------------
+
 
