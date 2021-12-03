@@ -14,7 +14,6 @@ __fastcall TBoardWindow::TBoardWindow(TComponent* Owner)
 {
         y = 5;
         x = 5;
-        Label1->Visible = false;
 }
 //---------------------------------------------------------------------------
 
@@ -32,7 +31,11 @@ void __fastcall TBoardWindow::ballTimerTimer(TObject *Sender)
         ballMove();
         wallCollision();
         paddleCollision();
-        isOver();
+        if(isOver() == true)
+        {
+                ball->Enabled = false;
+                ballTimer->Enabled = false;
+        }
 }
 //---------------------------------------------------------------------------
 
@@ -81,34 +84,34 @@ void TBoardWindow::wallCollision()
 
 void TBoardWindow::paddleCollision()
 {
-        if( ((ball->Top - ball->Height+2) > paddleLeft->Top) &&
-            (ball->Top -2 < paddleLeft->Top + paddleLeft->Height) &&
-            (ball->Left == (paddleLeft->Left + paddleLeft->Width)) )
+        if( ((ball->Top + ball->Height) > paddleLeft->Top) &&
+            (ball->Top < (paddleLeft->Top + paddleLeft->Height)) &&
+            (ball->Left <= (paddleLeft->Left + paddleLeft->Width)) )
         {
                 x = -x;
         }
-        if( ((ball->Top - ball->Height+2) > paddleRight->Top) &&
-            (ball->Top -2 < (paddleRight->Top + paddleRight->Height)) &&
-            ((ball->Left+ball->Width) == paddleRight->Left) )
+        if( ((ball->Top + ball->Height) > paddleRight->Top) &&
+            (ball->Top < (paddleRight->Top + paddleRight->Height)) &&
+            ((ball->Left+ball->Width) >= paddleRight->Left) )
         {
                 x = -x;
         }
 }
 
-void  TBoardWindow::isOver()
+bool  TBoardWindow::isOver()
 {
         if (ball->Left < 0)
         {
-                Label1->Visible = true;
-                Label1->Caption = "Wygrywa gracz po prawej";
-                ball->Enabled = false;
+
+                return true;
         }
-        if((ball->Left + ball->Width) > BoardWindow->Width)
+        else if((ball->Left + ball->Width) > BoardWindow->Width)
         {
-                Label1->Visible = true;
-                Label1->Caption = "Wygrywa gracz po lewej";
-                ball->Enabled = false;
+
+                return true;
         }
+        else
+                return false;
 }
 //---------------------------------------------------------------------------
 
@@ -116,7 +119,7 @@ void  TBoardWindow::isOver()
 
 void __fastcall TBoardWindow::FormCreate(TObject *Sender)
 {
-//DoubleBuffered = true;
+DoubleBuffered = true;
 }
 //---------------------------------------------------------------------------
 

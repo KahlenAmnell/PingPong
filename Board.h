@@ -23,7 +23,6 @@ __published:	// IDE-managed Components
         TButton *startButton;
         TTimer *leftPaddleDownTimer;
         TTimer *rightPaddleDownTimer;
-        TLabel *Label1;
         void __fastcall ballTimerTimer(TObject *Sender);
         void __fastcall startButtonClick(TObject *Sender);
         void __fastcall FormCreate(TObject *Sender);
@@ -40,7 +39,8 @@ private:	// User declarations
         void ballMove();
         void wallCollision();
         void paddleCollision();
-        void isOver();
+        bool isOver();
+
 public:		// User declarations
         __fastcall TBoardWindow(TComponent* Owner);
         int y;
