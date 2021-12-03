@@ -35,6 +35,7 @@ void __fastcall TBoardWindow::ballTimerTimer(TObject *Sender)
         {
                 ball->Enabled = false;
                 ballTimer->Enabled = false;
+                finishCondition(true);
         }
 }
 //---------------------------------------------------------------------------
@@ -102,12 +103,12 @@ bool  TBoardWindow::isOver()
 {
         if (ball->Left < 0)
         {
-
+                whoWin->Caption = "Czerwony";
                 return true;
         }
         else if((ball->Left + ball->Width) > BoardWindow->Width)
         {
-
+                whoWin->Caption = "Niebieski";
                 return true;
         }
         else
@@ -196,4 +197,14 @@ void __fastcall TBoardWindow::rightPaddleDownTimerTimer(TObject *Sender)
              paddleRight->Top += 10;
 }
 //---------------------------------------------------------------------------
-
+void TBoardWindow::finishCondition(bool con)
+{
+        win->Visible = con;
+        whoWin->Visible = con;
+        result->Visible =con;
+        intResult->Visible = con;
+        numberOfBounce->Visible = con;
+        nextRoundButton->Visible = con;
+        startButton->Visible = con;
+        startButton->Caption = "Powrot do menu glownego";
+}
