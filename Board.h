@@ -17,12 +17,35 @@ __published:	// IDE-managed Components
         TImage *paddleRight;
         TImage *ball;
         TImage *controlPicture;
-        TTimer *leftPalletTimer;
-        TTimer *RightPalletTimer;
+        TTimer *leftPaddleUpTimer;
+        TTimer *rightPaddleUpTimer;
         TTimer *ballTimer;
+        TButton *startButton;
+        TTimer *leftPaddleDownTimer;
+        TTimer *rightPaddleDownTimer;
+        TLabel *Label1;
+        void __fastcall ballTimerTimer(TObject *Sender);
+        void __fastcall startButtonClick(TObject *Sender);
+        void __fastcall FormCreate(TObject *Sender);
+        void __fastcall FormKeyDown(TObject *Sender, WORD &Key,
+          TShiftState Shift);
+        void __fastcall FormKeyUp(TObject *Sender, WORD &Key,
+          TShiftState Shift);
+        void __fastcall leftPaddleUpTimerTimer(TObject *Sender);
+        void __fastcall leftPaddleDownTimerTimer(TObject *Sender);
+        void __fastcall rightPaddleUpTimerTimer(TObject *Sender);
+        void __fastcall rightPaddleDownTimerTimer(TObject *Sender);
 private:	// User declarations
+        void randomStart();
+        void ballMove();
+        void wallCollision();
+        void paddleCollision();
+        void isOver();
 public:		// User declarations
         __fastcall TBoardWindow(TComponent* Owner);
+        int y;
+        int x;
+
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TBoardWindow *BoardWindow;
