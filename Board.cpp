@@ -94,21 +94,23 @@ void TBoardWindow::wallCollision()
 void TBoardWindow::paddleCollision()
 {
         int ballMiddle =  ball->Top + (ball->Height/2);
+
         if( ((ball->Top + ball->Height) > paddleLeft->Top) &&
             (ball->Top < (paddleLeft->Top + paddleLeft->Height)) &&
             (ball->Left <= (paddleLeft->Left + paddleLeft->Width)) &&
             (ball->Left > paddleLeft->Left) )
         {
-                if(ballMiddle > (paddleLeft->Top + (paddleLeft->Height/2) + 15) &&
-                  ( (ballMiddle) < (paddleLeft->Top + (paddleLeft->Height/2) - 15)))
+                if((ballMiddle > (paddleLeft->Top + (paddleLeft->Height/2) + 15)) &&
+                  ( ballMiddle < (paddleLeft->Top + (paddleLeft->Height/2) - 15)))
                 {
-                        x -= 2;
+                        x -= 8;
                 }
-                else
+                else if( (ballMiddle < paddleLeft->Top +10) &&
+                         (ballMiddle > (paddleLeft->Top + paddleLeft->Height - 10)) )
                 {
-                        if(x<-6)
+                        if(x<-8)
                         {
-                                x += 2;
+                                x += 8;
                         }
                 }
                 x = -x;
@@ -119,16 +121,17 @@ void TBoardWindow::paddleCollision()
             ((ball->Left+ball->Width) >= paddleRight->Left) &&
             (ball->Left + ball->Width < paddleRight->Left + paddleRight->Width) )
         {
-                if(ballMiddle > (paddleRight->Top + (paddleRight->Height/2) + 15) &&
+                if((ballMiddle > (paddleRight->Top + (paddleRight->Height/2) + 15)) &&
                   ( ballMiddle < (paddleRight->Top + (paddleRight->Height/2) - 15)))
                 {
-                        x += 2;
+                        x += 8;
                 }
-                else
+                else if( (ballMiddle < paddleRight->Top +10) &&
+                         (ballMiddle > (paddleRight->Top + paddleRight->Height - 10)) )
                 {
-                        if(x>6)
+                        if(x>8)
                         {
-                                x -= 2;
+                                x -= 8;
                         }
                 }
                 x = -x;
