@@ -19,6 +19,8 @@ __fastcall TBoardWindow::TBoardWindow(TComponent* Owner)
 
 void __fastcall TBoardWindow::startButtonClick(TObject *Sender)
 {
+    ball->Left = 500;
+    ball->Top = 288;
     controlPicture->Visible = false;
     startButton->Visible = false;
     ballTimer->Enabled = true;
@@ -206,5 +208,5 @@ void TBoardWindow::finishCondition(bool con)
         numberOfBounce->Visible = con;
         nextRoundButton->Visible = con;
         startButton->Visible = con;
-        startButton->Caption = "Powrot do menu glownego";
+        startButton->Caption = "Nastepna runda";
 }
