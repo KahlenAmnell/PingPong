@@ -40,6 +40,7 @@ __published:	// IDE-managed Components
         void __fastcall rightPaddleUpTimerTimer(TObject *Sender);
         void __fastcall rightPaddleDownTimerTimer(TObject *Sender);
         void __fastcall returnToMenuButtonClick(TObject *Sender);
+        void __fastcall FormCreate(TObject *Sender);
 
 private:	// User declarations
         void randomStart();

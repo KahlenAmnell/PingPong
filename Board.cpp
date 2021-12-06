@@ -93,11 +93,24 @@ void TBoardWindow::wallCollision()
 
 void TBoardWindow::paddleCollision()
 {
+        int ballMiddle =  ball->Top + (ball->Height/2);
         if( ((ball->Top + ball->Height) > paddleLeft->Top) &&
             (ball->Top < (paddleLeft->Top + paddleLeft->Height)) &&
             (ball->Left <= (paddleLeft->Left + paddleLeft->Width)) &&
             (ball->Left > paddleLeft->Left) )
         {
+                if(ballMiddle > (paddleLeft->Top + (paddleLeft->Height/2) + 15) &&
+                  ( (ballMiddle) < (paddleLeft->Top + (paddleLeft->Height/2) - 15)))
+                {
+                        x -= 2;
+                }
+                else
+                {
+                        if(x<-6)
+                        {
+                                x += 2;
+                        }
+                }
                 x = -x;
                 bounceCounter++;
         }
@@ -106,6 +119,18 @@ void TBoardWindow::paddleCollision()
             ((ball->Left+ball->Width) >= paddleRight->Left) &&
             (ball->Left + ball->Width < paddleRight->Left + paddleRight->Width) )
         {
+                if(ballMiddle > (paddleRight->Top + (paddleRight->Height/2) + 15) &&
+                  ( ballMiddle < (paddleRight->Top + (paddleRight->Height/2) - 15)))
+                {
+                        x += 2;
+                }
+                else
+                {
+                        if(x>6)
+                        {
+                                x -= 2;
+                        }
+                }
                 x = -x;
                 bounceCounter++; 
         }
@@ -225,4 +250,10 @@ void __fastcall TBoardWindow::returnToMenuButtonClick(TObject *Sender)
 //---------------------------------------------------------------------------
 
 
+
+void __fastcall TBoardWindow::FormCreate(TObject *Sender)
+{
+        BoardWindow->DoubleBuffered = true;
+}
+//---------------------------------------------------------------------------
 
