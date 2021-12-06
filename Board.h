@@ -49,6 +49,8 @@ private:	// User declarations
         void paddleCollision();
         bool isOver();
         void finishCondition(bool con);
+        int bluePlayerResult;
+        int redPlayerResult;
 
 public:		// User declarations
         __fastcall TBoardWindow(TComponent* Owner);
