@@ -28,7 +28,7 @@ __published:	// IDE-managed Components
         TLabel *result;
         TLabel *intResult;
         TLabel *numberOfBounce;
-        TButton *nextRoundButton;
+        TButton *returnToMenuButton;
         void __fastcall ballTimerTimer(TObject *Sender);
         void __fastcall startButtonClick(TObject *Sender);
         void __fastcall FormCreate(TObject *Sender);
@@ -40,6 +40,8 @@ __published:	// IDE-managed Components
         void __fastcall leftPaddleDownTimerTimer(TObject *Sender);
         void __fastcall rightPaddleUpTimerTimer(TObject *Sender);
         void __fastcall rightPaddleDownTimerTimer(TObject *Sender);
+        void __fastcall returnToMenuButtonClick(TObject *Sender);
+
 private:	// User declarations
         void randomStart();
         void ballMove();
@@ -47,6 +49,8 @@ private:	// User declarations
         void paddleCollision();
         bool isOver();
         void finishCondition(bool con);
+        int bluePlayerResult;
+        int redPlayerResult;
 
 public:		// User declarations
         __fastcall TBoardWindow(TComponent* Owner);

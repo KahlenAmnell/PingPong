@@ -14,6 +14,8 @@ __fastcall TBoardWindow::TBoardWindow(TComponent* Owner)
 {
         y = 5;
         x = 5;
+        bluePlayerResult = 0;
+        redPlayerResult = 0;
 }
 //---------------------------------------------------------------------------
 
@@ -24,6 +26,7 @@ void __fastcall TBoardWindow::startButtonClick(TObject *Sender)
     controlPicture->Visible = false;
     startButton->Visible = false;
     ballTimer->Enabled = true;
+    finishCondition(false);
     randomStart();
 }
 //---------------------------------------------------------------------------
@@ -38,6 +41,7 @@ void __fastcall TBoardWindow::ballTimerTimer(TObject *Sender)
                 ball->Enabled = false;
                 ballTimer->Enabled = false;
                 finishCondition(true);
+                intResult->Caption = IntToStr(bluePlayerResult) + " : " + IntToStr(redPlayerResult); 
         }
 }
 //---------------------------------------------------------------------------
@@ -106,11 +110,13 @@ bool  TBoardWindow::isOver()
         if (ball->Left < 0)
         {
                 whoWin->Caption = "Czerwony";
+                redPlayerResult++;
                 return true;
         }
         else if((ball->Left + ball->Width) > BoardWindow->Width)
         {
                 whoWin->Caption = "Niebieski";
+                bluePlayerResult++;
                 return true;
         }
         else
@@ -206,7 +212,16 @@ void TBoardWindow::finishCondition(bool con)
         result->Visible =con;
         intResult->Visible = con;
         numberOfBounce->Visible = con;
-        nextRoundButton->Visible = con;
+        returnToMenuButton->Visible = con;
         startButton->Visible = con;
         startButton->Caption = "Nastepna runda";
 }
+
+void __fastcall TBoardWindow::returnToMenuButtonClick(TObject *Sender)
+{
+        Close();
+}
+//---------------------------------------------------------------------------
+
+
+
