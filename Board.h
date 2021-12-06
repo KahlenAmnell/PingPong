@@ -40,7 +40,8 @@ __published:	// IDE-managed Components
         void __fastcall leftPaddleDownTimerTimer(TObject *Sender);
         void __fastcall rightPaddleUpTimerTimer(TObject *Sender);
         void __fastcall rightPaddleDownTimerTimer(TObject *Sender);
-        void __fastcall WndProc(TMessage &Message);
+        void __fastcall returnToMenuButtonClick(TObject *Sender);
+
 private:	// User declarations
         void randomStart();
         void ballMove();

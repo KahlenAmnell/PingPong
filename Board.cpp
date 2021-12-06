@@ -24,6 +24,7 @@ void __fastcall TBoardWindow::startButtonClick(TObject *Sender)
     controlPicture->Visible = false;
     startButton->Visible = false;
     ballTimer->Enabled = true;
+    finishCondition(false);
     randomStart();
 }
 //---------------------------------------------------------------------------
@@ -210,4 +211,11 @@ void TBoardWindow::finishCondition(bool con)
         startButton->Visible = con;
         startButton->Caption = "Nastepna runda";
 }
+
+void __fastcall TBoardWindow::returnToMenuButtonClick(TObject *Sender)
+{
+        Close();
+}
+//---------------------------------------------------------------------------
+
 
