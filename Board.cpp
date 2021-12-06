@@ -206,7 +206,8 @@ void TBoardWindow::finishCondition(bool con)
         result->Visible =con;
         intResult->Visible = con;
         numberOfBounce->Visible = con;
-        nextRoundButton->Visible = con;
+        returnToMenuButton->Visible = con;
         startButton->Visible = con;
         startButton->Caption = "Nastepna runda";
 }
+
