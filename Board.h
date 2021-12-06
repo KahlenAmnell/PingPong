@@ -31,7 +31,6 @@ __published:	// IDE-managed Components
         TButton *returnToMenuButton;
         void __fastcall ballTimerTimer(TObject *Sender);
         void __fastcall startButtonClick(TObject *Sender);
-        void __fastcall FormCreate(TObject *Sender);
         void __fastcall FormKeyDown(TObject *Sender, WORD &Key,
           TShiftState Shift);
         void __fastcall FormKeyUp(TObject *Sender, WORD &Key,
@@ -51,6 +50,7 @@ private:	// User declarations
         void finishCondition(bool con);
         int bluePlayerResult;
         int redPlayerResult;
+        int bounceCounter;
 
 public:		// User declarations
         __fastcall TBoardWindow(TComponent* Owner);

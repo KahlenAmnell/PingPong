@@ -27,6 +27,7 @@ void __fastcall TBoardWindow::startButtonClick(TObject *Sender)
     startButton->Visible = false;
     ballTimer->Enabled = true;
     finishCondition(false);
+    bounceCounter = 0;
     randomStart();
 }
 //---------------------------------------------------------------------------
@@ -41,7 +42,8 @@ void __fastcall TBoardWindow::ballTimerTimer(TObject *Sender)
                 ball->Enabled = false;
                 ballTimer->Enabled = false;
                 finishCondition(true);
-                intResult->Caption = IntToStr(bluePlayerResult) + " : " + IntToStr(redPlayerResult); 
+                intResult->Caption = IntToStr(bluePlayerResult) + " : " + IntToStr(redPlayerResult);
+                numberOfBounce->Caption = "Liczba odbic: " + IntToStr(bounceCounter);
         }
 }
 //---------------------------------------------------------------------------
@@ -93,15 +95,19 @@ void TBoardWindow::paddleCollision()
 {
         if( ((ball->Top + ball->Height) > paddleLeft->Top) &&
             (ball->Top < (paddleLeft->Top + paddleLeft->Height)) &&
-            (ball->Left <= (paddleLeft->Left + paddleLeft->Width)) )
+            (ball->Left <= (paddleLeft->Left + paddleLeft->Width)) &&
+            (ball->Left > paddleLeft->Left) )
         {
                 x = -x;
+                bounceCounter++;
         }
         if( ((ball->Top + ball->Height) > paddleRight->Top) &&
             (ball->Top < (paddleRight->Top + paddleRight->Height)) &&
-            ((ball->Left+ball->Width) >= paddleRight->Left) )
+            ((ball->Left+ball->Width) >= paddleRight->Left) &&
+            (ball->Left + ball->Width < paddleRight->Left + paddleRight->Width) )
         {
                 x = -x;
+                bounceCounter++; 
         }
 }
 
@@ -126,11 +132,6 @@ bool  TBoardWindow::isOver()
 
 
 
-void __fastcall TBoardWindow::FormCreate(TObject *Sender)
-{
-DoubleBuffered = true;
-}
-//---------------------------------------------------------------------------
 
 
 void __fastcall TBoardWindow::FormKeyDown(TObject *Sender, WORD &Key,
