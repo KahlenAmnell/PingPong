@@ -19,8 +19,9 @@ __fastcall TBoardWindow::TBoardWindow(TComponent* Owner)
 
 void __fastcall TBoardWindow::startButtonClick(TObject *Sender)
 {
-    ball->Left = 500;
-    ball->Top = 288;
+    customizeLabelsToBoardWindowSize();
+    ball->Left = BoardWindow->Width/2;
+    ball->Top = BoardWindow->Height/2;
     paddleRight->Left = BoardWindow->Width - 44;
     startButton->Visible = false;
     ballTimer->Enabled = true;
@@ -240,15 +241,15 @@ void __fastcall TBoardWindow::rightPaddleDownTimerTimer(TObject *Sender)
              paddleRight->Top += 10;
 }
 //---------------------------------------------------------------------------
-void TBoardWindow::finishCondition(bool con)
+void TBoardWindow::finishCondition(bool condition)
 {
-        win->Visible = con;
-        whoWin->Visible = con;
-        result->Visible =con;
-        intResult->Visible = con;
-        numberOfBounce->Visible = con;
-        returnToMenuButton->Visible = con;
-        startButton->Visible = con;
+        win->Visible = condition;
+        whoWin->Visible = condition;
+        result->Visible =condition;
+        intResult->Visible = condition;
+        numberOfBounce->Visible = condition;
+        returnToMenuButton->Visible = condition;
+        startButton->Visible = condition;
         startButton->Caption = "Nastepna runda";
 }
 
@@ -266,3 +267,16 @@ void __fastcall TBoardWindow::FormCreate(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+void TBoardWindow::customizeLabelsToBoardWindowSize()
+{
+        int leftCoordinate = BoardWindow->Width/2 - (intResult->Width/2);
+        int buttonsLeft = BoardWindow->Width/2 - (startButton->Width/2);
+
+        intResult->Left =  leftCoordinate;
+        numberOfBounce->Left = leftCoordinate;
+        result->Left = leftCoordinate;
+        returnToMenuButton->Left = buttonsLeft;
+        startButton->Left = buttonsLeft;
+        whoWin->Left = leftCoordinate;
+        win->Left = leftCoordinate;
+}

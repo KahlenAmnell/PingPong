@@ -47,10 +47,11 @@ private:	// User declarations
         void wallCollision();
         void paddleCollision();
         bool isOver();
-        void finishCondition(bool con);
+        void finishCondition(bool condition);
         int bluePlayerResult;
         int redPlayerResult;
         int bounceCounter;
+        void customizeLabelsToBoardWindowSize();
 
 public:		// User declarations
         __fastcall TBoardWindow(TComponent* Owner);
