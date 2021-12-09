@@ -16,7 +16,6 @@ __published:	// IDE-managed Components
         TImage *paddleLeft;
         TImage *paddleRight;
         TImage *ball;
-        TImage *controlPicture;
         TTimer *leftPaddleUpTimer;
         TTimer *rightPaddleUpTimer;
         TTimer *ballTimer;
@@ -31,7 +30,6 @@ __published:	// IDE-managed Components
         TButton *returnToMenuButton;
         void __fastcall ballTimerTimer(TObject *Sender);
         void __fastcall startButtonClick(TObject *Sender);
-        void __fastcall FormCreate(TObject *Sender);
         void __fastcall FormKeyDown(TObject *Sender, WORD &Key,
           TShiftState Shift);
         void __fastcall FormKeyUp(TObject *Sender, WORD &Key,
@@ -41,6 +39,7 @@ __published:	// IDE-managed Components
         void __fastcall rightPaddleUpTimerTimer(TObject *Sender);
         void __fastcall rightPaddleDownTimerTimer(TObject *Sender);
         void __fastcall returnToMenuButtonClick(TObject *Sender);
+        void __fastcall FormCreate(TObject *Sender);
 
 private:	// User declarations
         void randomStart();
@@ -48,9 +47,12 @@ private:	// User declarations
         void wallCollision();
         void paddleCollision();
         bool isOver();
-        void finishCondition(bool con);
+        void finishCondition(bool condition);
         int bluePlayerResult;
         int redPlayerResult;
+        int bounceCounter;
+        void customizeLabelsToBoardWindowSize();
+
 
 public:		// User declarations
         __fastcall TBoardWindow(TComponent* Owner);

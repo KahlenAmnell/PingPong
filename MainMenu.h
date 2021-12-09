@@ -21,7 +21,9 @@ __published:	// IDE-managed Components
         void __fastcall newGameButtonClick(TObject *Sender);
         void __fastcall closeButtonClick(TObject *Sender);
         void __fastcall optionButtonClick(TObject *Sender);
+        void __fastcall FormCreate(TObject *Sender);
 private:	// User declarations
+        AnsiString controlText();
 public:		// User declarations
         __fastcall TMainMenuWindow(TComponent* Owner);
 };
