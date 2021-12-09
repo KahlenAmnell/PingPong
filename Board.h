@@ -16,7 +16,6 @@ __published:	// IDE-managed Components
         TImage *paddleLeft;
         TImage *paddleRight;
         TImage *ball;
-        TImage *controlPicture;
         TTimer *leftPaddleUpTimer;
         TTimer *rightPaddleUpTimer;
         TTimer *ballTimer;

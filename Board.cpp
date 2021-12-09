@@ -21,7 +21,7 @@ void __fastcall TBoardWindow::startButtonClick(TObject *Sender)
 {
     ball->Left = 500;
     ball->Top = 288;
-    controlPicture->Visible = false;
+    paddleRight->Left = BoardWindow->Width - 44;
     startButton->Visible = false;
     ballTimer->Enabled = true;
     finishCondition(false);
@@ -96,7 +96,6 @@ void TBoardWindow::paddleCollision()
         int ballMiddleHeight =  ball->Top + (ball->Height/2);
         int ballDown = ball->Top + ball->Height;
         int ballRight = ball->Left + ball->Width;
-        int ballMiddleWidth = ball->Left + (ball->Width/2);
 
         int paddleLeftDown =  paddleLeft->Top + paddleLeft->Height;
         int paddleLeftRight = paddleLeft->Left + paddleLeft->Width;
@@ -105,33 +104,6 @@ void TBoardWindow::paddleCollision()
         int paddleRightDown = paddleRight->Top + paddleRight->Height;
         int paddleRightRight = paddleRight->Left + paddleRight->Width;
         int paddleRightHeightMiddle = paddleRight->Top + (paddleRight->Height/2);
-
-        if( (ballDown >= paddleLeft->Top) && (ball->Top <= (paddleLeft->Top - ball->Height)) &&
-             (ballMiddleWidth >= paddleLeft->Left) && (ballMiddleWidth <= paddleLeftRight))
-           {
-                y = -y;
-                bounceCounter++;
-           }
-        if ((ball->Top <= paddleLeftDown) && (ball->Top <= (paddleLeft->Top + ball->Height)) &&
-             (ballMiddleWidth >= paddleLeft->Left) && (ballMiddleWidth <= paddleLeftRight))
-             {
-                y = -y;
-                bounceCounter++;
-           }
-
-        if( (ballDown >= paddleRight->Top) && (ball->Top <= (paddleRight->Top - ball->Height)) &&
-             (ballMiddleWidth >= paddleRight->Left) && (ballMiddleWidth <= paddleRightRight))
-           {
-                y = -y;
-                bounceCounter++;
-           }
-
-        if ((ball->Top <= paddleRightDown) && (ball->Top <= (paddleRight->Top + ball->Height)) &&
-             (ballMiddleWidth >= paddleRight->Left) && (ballMiddleWidth <= paddleRightRight))
-             {
-                y = -y;
-                bounceCounter++;
-           }
 
         if( (ballDown > paddleLeft->Top) && (ball->Top < paddleLeftDown) &&
             (ball->Left <= paddleLeftRight) && (ball->Left > paddleLeft->Left) )
@@ -175,13 +147,13 @@ void TBoardWindow::paddleCollision()
 
 bool  TBoardWindow::isOver()
 {
-        if (ball->Left < 0)
+        if ((ball->Left+20) < (paddleLeft->Left+paddleLeft->Width))
         {
                 whoWin->Caption = "Czerwony";
                 redPlayerResult++;
                 return true;
         }
-        else if((ball->Left + ball->Width) > BoardWindow->Width)
+        else if((ball->Left + ball->Width-20) > paddleRight->Left)
         {
                 whoWin->Caption = "Niebieski";
                 bluePlayerResult++;
