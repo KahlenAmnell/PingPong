@@ -53,6 +53,7 @@ private:	// User declarations
         int bounceCounter;
         void customizeLabelsToBoardWindowSize();
 
+
 public:		// User declarations
         __fastcall TBoardWindow(TComponent* Owner);
         int y;

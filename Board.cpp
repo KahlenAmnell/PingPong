@@ -280,3 +280,5 @@ void TBoardWindow::customizeLabelsToBoardWindowSize()
         whoWin->Left = leftCoordinate;
         win->Left = leftCoordinate;
 }
+
+
